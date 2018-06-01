@@ -30,13 +30,14 @@ for subcarrier = 56:4:56
     [p,s,mu] = polyfit(x, y, opol);
     f_y = polyval(p, x, [], mu);
     figure
-    plot(x, y, 'r', x, f_y, 'b')
+    plot(x, y, 'r', x, f_y, 'b', 'linewidth', 2)
     legend('Signal', 'Baseline')
-    set(gca, 'FontSize', 15)
+    set(gca, 'FontSize', 40)
+    ylim([0 7])
     y = y - f_y;
     figure
-    plot(x, y, 'r')
-    set(gca, 'FontSize', 15)
+    plot(x, y, 'r', 'linewidth', 2)
+    set(gca, 'FontSize', 40)
     figure
     wavename='cmor3-3';
     totalscal = 2048; %尺度序列的长度，即scal的长度 %length of scale
