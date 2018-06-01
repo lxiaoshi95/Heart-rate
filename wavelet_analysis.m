@@ -31,13 +31,13 @@ for subcarrier = 56:4:56
     [p,s,mu] = polyfit(x, y, opol);
     f_y = polyval(p, x, [], mu);
     figure(1)
-    plot(x/40, y, 'r', x/40, f_y, 'b', 'linewidth', 2)
+    plot(x/fs, y, 'r', x/fs, f_y, 'b', 'linewidth', 2)
     legend('Signal', 'Baseline')
     set(gca, 'FontSize', 40)
     ylim([0 7])
     y = y - f_y;
     figure(2)
-    plot(x/40, y, 'r', 'linewidth', 2)
+    plot(x/fs, y, 'r', 'linewidth', 2)
     set(gca, 'FontSize', 40)
     wavename='cmor3-3';
     totalscal = 2048; %尺度序列的长度，即scal的长度 %length of scale
@@ -48,7 +48,7 @@ for subcarrier = 56:4:56
     coefs = cwt(y, scal, wavename); %得到小波系数 %wavelet coefficient
     f = scal2frq(scal, wavename, 1/fs); %将尺度转换为频率 %change scale to frequency
     figure(3)
-    imagesc(x/40, f, abs(coefs)); %绘制色谱图 %plot the imaging
+    imagesc(x/fs, f, abs(coefs)); %绘制色谱图 %plot the imaging
     xlabel('time t/s');
     ylabel('frequency f/Hz');
     title('time-frequency presentation');
@@ -59,7 +59,7 @@ for subcarrier = 56:4:56
     yy = abs(coefs);
     yy(find(f<1), :) = 0;
     figure(4)
-    imagesc(x/40, f, yy); %绘制色谱图
+    imagesc(x/fs, f, yy); %绘制色谱图
     xlabel('time t/s');
     ylabel('frequency f/Hz');
     title('time-frequency presentation');
