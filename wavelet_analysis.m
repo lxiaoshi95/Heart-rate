@@ -39,14 +39,14 @@ for subcarrier = 56:4:56
     set(gca, 'FontSize', 15)
     figure
     wavename='cmor3-3';
-    totalscal = 2048; %³ß¶ÈĞòÁĞµÄ³¤¶È£¬¼´scalµÄ³¤¶È
-    wcf = centfrq(wavename); %Ğ¡²¨µÄÖĞĞÄÆµÂÊ
-    cparam = 2 * wcf * totalscal; %ÎªµÃµ½ºÏÊÊµÄ³ß¶ÈËùÇó³öµÄ²ÎÊı
+    totalscal = 2048; %å°ºåº¦åºåˆ—çš„é•¿åº¦ï¼Œå³scalçš„é•¿åº¦
+    wcf = centfrq(wavename); %å°æ³¢çš„ä¸­å¿ƒé¢‘ç‡
+    cparam = 2 * wcf * totalscal; %ä¸ºå¾—åˆ°åˆé€‚çš„å°ºåº¦æ‰€æ±‚å‡ºçš„å‚æ•°
     a = totalscal:-1:1;
-    scal = cparam ./ a; %µÃµ½¸÷¸ö³ß¶È£¬ÒÔÊ¹×ª»»µÃµ½ÆµÂÊĞòÁĞÎªµÈ²îĞòÁĞ
-    coefs = cwt(y, scal, wavename); %µÃµ½Ğ¡²¨ÏµÊı
-    f = scal2frq(scal, wavename, 1/fs); %½«³ß¶È×ª»»ÎªÆµÂÊ
-    imagesc(x/40, f, abs(coefs)); %»æÖÆÉ«Æ×Í¼
+    scal = cparam ./ a; %å¾—åˆ°å„ä¸ªå°ºåº¦ï¼Œä»¥ä½¿è½¬æ¢å¾—åˆ°é¢‘ç‡åºåˆ—ä¸ºç­‰å·®åºåˆ—
+    coefs = cwt(y, scal, wavename); %å¾—åˆ°å°æ³¢ç³»æ•°
+    f = scal2frq(scal, wavename, 1/fs); %å°†å°ºåº¦è½¬æ¢ä¸ºé¢‘ç‡
+    imagesc(x/40, f, abs(coefs)); %ç»˜åˆ¶è‰²è°±å›¾
     xlabel('time t/s');
     ylabel('frequency f/Hz');
     title('time-frequency presentation');
@@ -57,7 +57,7 @@ for subcarrier = 56:4:56
     figure
     yy = abs(coefs);
     yy(find(f<1), :) = 0;
-    imagesc(x/40, f, yy); %»æÖÆÉ«Æ×Í¼
+    imagesc(x/40, f, yy); %ç»˜åˆ¶è‰²è°±å›¾
     xlabel('time t/s');
     ylabel('frequency f/Hz');
     title('time-frequency presentation');
