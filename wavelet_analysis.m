@@ -2,7 +2,7 @@
 close all; clc; clear;
 
 %%
-fs = 40; %sampling frequency
+fs = 10; %sampling frequency
 ret = read_log_file('out_0508_1159');
 [n_packets,~] = size(ret);
 data1 = zeros(1,n_packets);
