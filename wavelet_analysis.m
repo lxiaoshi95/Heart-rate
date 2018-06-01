@@ -39,14 +39,14 @@ for subcarrier = 56:4:56
     set(gca, 'FontSize', 15)
     figure
     wavename='cmor3-3';
-    totalscal = 2048; %尺度序列的长度，即scal的长度
-    wcf = centfrq(wavename); %小波的中心频率
-    cparam = 2 * wcf * totalscal; %为得到合适的尺度所求出的参数
+    totalscal = 2048; %尺度序列的长度，即scal的长度 %length of scale
+    wcf = centfrq(wavename); %小波的中心频率 %center frequency of wavelet
+    cparam = 2 * wcf * totalscal; %为得到合适的尺度所求出的参数 %coefficient
     a = totalscal:-1:1;
     scal = cparam ./ a; %得到各个尺度，以使转换得到频率序列为等差序列
-    coefs = cwt(y, scal, wavename); %得到小波系数
-    f = scal2frq(scal, wavename, 1/fs); %将尺度转换为频率
-    imagesc(x/40, f, abs(coefs)); %绘制色谱图
+    coefs = cwt(y, scal, wavename); %得到小波系数 %wavelet coefficient
+    f = scal2frq(scal, wavename, 1/fs); %将尺度转换为频率 %change scale to frequency
+    imagesc(x/40, f, abs(coefs)); %绘制色谱图 %plot the imaging
     xlabel('time t/s');
     ylabel('frequency f/Hz');
     title('time-frequency presentation');
