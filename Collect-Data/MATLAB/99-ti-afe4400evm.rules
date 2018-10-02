@@ -1,0 +1,2 @@
+# Texas Instruments AFE44xx EVM
+SUBSYSTEM=="usb", ATTR{idVendor}=="2047", ATTR{idProduct}=="0300", MODE="660", GROUP="plugdev"
