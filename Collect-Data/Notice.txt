@@ -1,0 +1,14 @@
+Watch: 
+AFE4403EVM (TI)
+
+Sensors: 
+PPG and Accelerometer (MPU9150)
+
+Function: 
+Read PPG and Accelerometer in the same time.
+
+Notice: 
+This version can work, but is far from good.
+Watch-TI folder includes the code of watch.
+MATLAB folder includes the code of reading PPG and ACC data.
+MATLAB code is written on Linux.
